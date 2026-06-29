@@ -1,0 +1,30 @@
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\bin\Release\net8.0\PersonalProtfolioDataTier.deps.json
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\bin\Release\net8.0\PersonalProtfolioDataTier.dll
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\bin\Release\net8.0\PersonalProtfolioDataTier.pdb
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.csproj.AssemblyReference.cache
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.AssemblyInfoInputs.cache
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.AssemblyInfo.cs
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.csproj.CoreCompileInputs.cache
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.dll
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\obj\Release\net8.0\refint\PersonalProtfolioDataTier.dll
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.pdb
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\obj\Release\net8.0\ref\PersonalProtfolioDataTier.dll
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\bin\Release\net8.0\EventLogs.dll
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\bin\Release\net8.0\EventLogs.pdb
+C:\Users\asus\Desktop\PersonalProtfolioDataTier\obj\Release\net8.0\Personal.3AAAB787.Up2Date
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\bin\Release\net8.0\PersonalProtfolioDataTier.deps.json
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\bin\Release\net8.0\PersonalProtfolioDataTier.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\bin\Release\net8.0\PersonalProtfolioDataTier.pdb
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\bin\Release\net8.0\EventLogs.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\bin\Release\net8.0\EventLogs.pdb
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.csproj.AssemblyReference.cache
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.AssemblyInfoInputs.cache
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.AssemblyInfo.cs
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.csproj.CoreCompileInputs.cache
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Release\net8.0\Personal.3AAAB787.Up2Date
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Release\net8.0\refint\PersonalProtfolioDataTier.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Release\net8.0\PersonalProtfolioDataTier.pdb
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Release\net8.0\ref\PersonalProtfolioDataTier.dll

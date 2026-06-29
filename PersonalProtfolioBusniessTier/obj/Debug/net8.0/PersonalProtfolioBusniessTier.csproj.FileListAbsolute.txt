@@ -1,0 +1,51 @@
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioBusniessTier.deps.json
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioBusniessTier.dll
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioBusniessTier.pdb
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioDataTier.dll
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioDataTier.pdb
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.csproj.AssemblyReference.cache
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.AssemblyInfoInputs.cache
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.AssemblyInfo.cs
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.csproj.CoreCompileInputs.cache
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\obj\Debug\net8.0\Personal.FBEC01D9.Up2Date
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.dll
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\obj\Debug\net8.0\refint\PersonalProtfolioBusniessTier.dll
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.pdb
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\obj\Debug\net8.0\ref\PersonalProtfolioBusniessTier.dll
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\bin\Debug\net8.0\EventLogs.dll
+C:\Users\asus\Desktop\PersonalProtfolioBusniessTier\bin\Debug\net8.0\EventLogs.pdb
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioBusniessTier.deps.json
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioBusniessTier.dll
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioBusniessTier.pdb
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\bin\Debug\net8.0\EventLogs.dll
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioDataTier.dll
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioDataTier.pdb
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\bin\Debug\net8.0\EventLogs.pdb
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.csproj.AssemblyReference.cache
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.AssemblyInfoInputs.cache
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.AssemblyInfo.cs
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.csproj.CoreCompileInputs.cache
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\obj\Debug\net8.0\Personal.FBEC01D9.Up2Date
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.dll
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\obj\Debug\net8.0\refint\PersonalProtfolioBusniessTier.dll
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.pdb
+C:\Users\asus\Desktop\6666\PersonalProtfolioBusniessTier\obj\Debug\net8.0\ref\PersonalProtfolioBusniessTier.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioBusniessTier.deps.json
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioBusniessTier.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioBusniessTier.pdb
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\bin\Debug\net8.0\EventLogs.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioDataTier.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\bin\Debug\net8.0\PersonalProtfolioDataTier.pdb
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\bin\Debug\net8.0\EventLogs.pdb
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.csproj.AssemblyReference.cache
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.AssemblyInfoInputs.cache
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.AssemblyInfo.cs
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.csproj.CoreCompileInputs.cache
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Debug\net8.0\Personal.FBEC01D9.Up2Date
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Debug\net8.0\refint\PersonalProtfolioBusniessTier.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Debug\net8.0\PersonalProtfolioBusniessTier.pdb
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Debug\net8.0\ref\PersonalProtfolioBusniessTier.dll
