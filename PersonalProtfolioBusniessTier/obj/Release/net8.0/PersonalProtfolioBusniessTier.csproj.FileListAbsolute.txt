@@ -32,3 +32,4 @@ C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Release\net
 C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Release\net8.0\refint\PersonalProtfolioBusniessTier.dll
 C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Release\net8.0\PersonalProtfolioBusniessTier.pdb
 C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Release\net8.0\ref\PersonalProtfolioBusniessTier.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioBusniessTier\obj\Release\net8.0\PersonalProtfolioBusniessTier.sourcelink.json

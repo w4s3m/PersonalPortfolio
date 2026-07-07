@@ -167,3 +167,4 @@ C:\Users\asus\Desktop\Personel 1.2\PersonelProtfolio\obj\Release\net8.0\refint\P
 C:\Users\asus\Desktop\Personel 1.2\PersonelProtfolio\obj\Release\net8.0\PersonelProtfolio.pdb
 C:\Users\asus\Desktop\Personel 1.2\PersonelProtfolio\obj\Release\net8.0\PersonelProtfolio.genruntimeconfig.cache
 C:\Users\asus\Desktop\Personel 1.2\PersonelProtfolio\obj\Release\net8.0\ref\PersonelProtfolio.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonelProtfolio\obj\Release\net8.0\PersonelProtfolio.sourcelink.json
