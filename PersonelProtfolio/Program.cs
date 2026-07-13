@@ -109,7 +109,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("PersonalProtfolioCorsPolicy", policy =>
     {
-        policy.WithOrigins("http://localhost:7000") //  √ﬂœ √‰ Â–« ÂÊ —«»ÿ «·‹ React ·œÌﬂ
+        policy.WithOrigins("http://localhost:7000") 
               .AllowAnyHeader()
               .AllowAnyMethod();
     });

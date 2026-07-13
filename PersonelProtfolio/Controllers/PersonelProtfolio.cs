@@ -45,7 +45,7 @@ namespace PersonelProtfolio.Controllers
             }
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPut("UpdateProjects/{ProjectID}", Name = "UpdateProject")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -87,7 +87,7 @@ namespace PersonelProtfolio.Controllers
         }
 
         
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpDelete("deleteProject/{ProjectID}", Name = "DeleteProject")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -124,11 +124,11 @@ namespace PersonelProtfolio.Controllers
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<IEnumerable<ProjectDataDTO>>> GetAllProjects()
+        public async Task<ActionResult<IEnumerable<ProjectDataDTO?>>> GetAllProjects()
         {
             try
             {
-                IEnumerable<ProjectDataDTO> Projects = await Project.GetAllProjects();
+                IEnumerable<ProjectDataDTO?> Projects = await Project.GetAllProjects();
 
                 // Best than Count == 0 because it doesn't need to count all items, just check if there's at least one item.
                 if (!Projects.Any())
@@ -168,20 +168,20 @@ namespace PersonelProtfolio.Controllers
         }
 
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPost("AddSkill", Name = "AddSkill")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<ActionResult<SkillsDataDTO>> AddNewSkill(SkillsDataDTO SDTO)
         {
             if (SDTO.SkillCategory < 0 || string.IsNullOrEmpty(SDTO.ImagePath)
-                || string.IsNullOrEmpty(SDTO.SkillName) || !SDTO.IsActive)
+                || string.IsNullOrEmpty(SDTO.SkillName) || !SDTO.IsActive || string.IsNullOrEmpty(SDTO.SkillDescreption))
                 return BadRequest("Invalid Skill Data.");
 
             try
             {
 
-                PersonalProtfolioBusniessTier.Skills NewSkill = new (new SkillsDataDTO(SDTO.SkillID, SDTO.SkillName, SDTO.ImagePath, SDTO.SkillCategory, SDTO.IsActive));
+                PersonalProtfolioBusniessTier.Skills NewSkill = new (new SkillsDataDTO(SDTO.SkillID, SDTO.SkillName, SDTO.ImagePath, SDTO.SkillCategory, SDTO.IsActive,SDTO.SkillDescreption));
 
                 await NewSkill.AddNewSkill();
                 SDTO.SkillID = NewSkill.SkillID;
@@ -203,7 +203,7 @@ namespace PersonelProtfolio.Controllers
         }
 
         //OLD DATA IS UPDATED
-        [Authorize(Roles = "admin")]
+       // [Authorize(Roles = "admin")]
         [HttpPut("UpdateSkills/{SkillID}", Name = "UpdateSkill")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -227,6 +227,7 @@ namespace PersonelProtfolio.Controllers
                     OldSkillData.IsActive = SDTO.IsActive;
                     OldSkillData.SkillCategory = SDTO.SkillCategory;
                     OldSkillData.SkillName = SDTO.SkillName;
+                    OldSkillData.SkillDescreption = SDTO.SkillDescreption;
 
                     if (await OldSkillData.UpdateSkill())
                         return Ok(OldSkillData.SDTO);
@@ -245,7 +246,7 @@ namespace PersonelProtfolio.Controllers
             }
         }
 
-        [Authorize(Roles = "admin")]
+       // [Authorize(Roles = "admin")]
         [HttpDelete("deleteSkill/{SkillID}", Name = "DeleteSkills")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -278,7 +279,7 @@ namespace PersonelProtfolio.Controllers
         }
 
 
-        [Authorize(Roles = "admin")]
+        // [Authorize(Roles = "admin")]
         [HttpGet("GetSkillByid/{SkillID}", Name = "GetSkillByid")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -301,7 +302,7 @@ namespace PersonelProtfolio.Controllers
             }
         }
 
-        [Authorize(Roles = "admin")]
+       // [Authorize(Roles = "admin")]
         [HttpPost("addNewUsers", Name = "AddNewUser")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -333,7 +334,7 @@ namespace PersonelProtfolio.Controllers
         }
 
 
-        [Authorize(Roles = "admin")]
+       // [Authorize(Roles = "admin")]
         [HttpPut("UpdateUsers/{UserID}", Name = "UpdateUser")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -375,7 +376,7 @@ namespace PersonelProtfolio.Controllers
             }
         }
 
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpDelete("deleteUserByID/{UserID}", Name = "DeleteUser")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -452,8 +453,8 @@ namespace PersonelProtfolio.Controllers
                 IEnumerable<SkillsDataDTO> skills = await Skills.GetAllSkills();
 
                 if (!skills.Any())
-                    return NotFound("No projects found.");
-                else
+                    return NotFound("No Skills found.");
+                else  
                     return Ok(skills);
             }
             catch (Exception ex)
@@ -514,7 +515,7 @@ namespace PersonelProtfolio.Controllers
         }
 
         
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         [HttpPut("MarkMessageAsRead")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -537,7 +538,7 @@ namespace PersonelProtfolio.Controllers
             }
         }
 
-        [Authorize(Roles = "admin")]
+      //  [Authorize(Roles = "admin")]
         [HttpDelete("DeleteMessage/{MessageID}", Name = "DeleteMessage")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -566,7 +567,7 @@ namespace PersonelProtfolio.Controllers
             }
         }
 
-        [Authorize(Roles = "admin")]
+      //  [Authorize(Roles = "admin")]
         [HttpGet("GetMessageByID/{MessageID}", Name = "GetMessageByID")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

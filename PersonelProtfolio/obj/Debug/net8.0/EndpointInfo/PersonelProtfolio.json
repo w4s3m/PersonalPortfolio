@@ -1704,6 +1704,7 @@
         "required": [
           "imagePath",
           "skillCategory",
+          "skillDescreption",
           "skillName"
         ],
         "type": "object",
@@ -1729,6 +1730,11 @@
           },
           "isActive": {
             "type": "boolean"
+          },
+          "skillDescreption": {
+            "minLength": 1,
+            "type": "string",
+            "default": ""
           }
         },
         "additionalProperties": false

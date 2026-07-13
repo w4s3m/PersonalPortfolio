@@ -56,7 +56,7 @@ namespace PersonalProtfolioBusniessTier
             this._Mode = mode;
             this.Role = UDTO.Role;
 
-            if (this.Role == "Admin")
+            if (this.Role == "admin")
                 this._RoleMode = _enRole.Admin;
             else
                 this._RoleMode = _enRole.User;
@@ -117,10 +117,16 @@ namespace PersonalProtfolioBusniessTier
 
         public static async Task<UserDataDTO?> LoginUserByUserNameAndPassword(string userName, string PasswordHash)
         {
+            
             if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(PasswordHash))
                 return null;
 
-            return await UsersData.LoginUserByUserNameAndPassword(userName, PasswordHash);
+            UserDataDTO? Us = await UsersData.LoginUserByUserNameAndPassword(userName, PasswordHash);
+
+            if (Us.Role != "user" && Us.IsActive == false)
+                return null;
+            else
+                return Us;
         }
 
         private static bool IsValidEmail(string email)

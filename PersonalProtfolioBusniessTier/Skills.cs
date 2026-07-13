@@ -15,7 +15,7 @@ namespace PersonalProtfolioBusniessTier
         {
             get
             {
-                return new SkillsDataDTO(this.SkillID, this.SkillName, this.ImagePath, this.SkillCategory, this.IsActive);
+                return new SkillsDataDTO(this.SkillID, this.SkillName, this.ImagePath, this.SkillCategory, this.IsActive, this.SkillDescreption);
             }
         }
         public int SkillID { get; set; }
@@ -23,7 +23,7 @@ namespace PersonalProtfolioBusniessTier
         public string ImagePath { get; set; } = null!;
         public int SkillCategory { get; set; } = 0;
         public bool IsActive { get; set; } = true!;
-
+        public string SkillDescreption { get; set; } = null!;
 
 
         public Skills(SkillsDataDTO SDTO, _enMode Mode = _enMode.AddNew)
@@ -35,6 +35,7 @@ namespace PersonalProtfolioBusniessTier
             this.IsActive = SDTO.IsActive;
             this._Mode = Mode;
             this.LastErrorMessage = string.Empty;
+            this.SkillDescreption = SDTO.SkillDescreption;
 
         }
 
@@ -80,6 +81,10 @@ namespace PersonalProtfolioBusniessTier
         {
             this.LastErrorMessage = string.Empty;
 
+            if (this.SkillCategory > 4)
+            {
+                this.LastErrorMessage = "يجب أن لا يكون فئة المهاره تتجاوز 3";
+            }
             if (string.IsNullOrWhiteSpace(this.SkillName))
             {
                 this.LastErrorMessage = "اسم المهارة غير صالح.";
@@ -90,7 +95,7 @@ namespace PersonalProtfolioBusniessTier
                 this.SkillName = this.SkillName.ToUpper();
             }
 
-            if (this.SkillCategory <= 0)
+            if (this.SkillCategory < 0)
             {
                 this.LastErrorMessage = "يرجى اختيار تصنيف صالح للمهارة.";
                 return false;
@@ -102,6 +107,11 @@ namespace PersonalProtfolioBusniessTier
                 return false;
             }
 
+            if (string.IsNullOrEmpty(this.SkillDescreption))
+            {
+                this.LastErrorMessage = "وصف المهارة مطلوب.";
+                return false;
+            }
             //string extension = System.IO.Path.GetExtension(this.ImagePath).ToLower();
             //string[] allowedExtensions = { ".png", ".jpg", ".svg", ".webp" };
 

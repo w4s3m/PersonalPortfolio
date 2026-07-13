@@ -253,3 +253,4 @@ C:\Users\asus\Desktop\Personel 1.2\PersonelProtfolio\obj\Debug\net8.0\staticweba
 C:\Users\asus\Desktop\Personel 1.2\PersonelProtfolio\obj\Debug\net8.0\Personel.4D089615.Up2Date
 C:\Users\asus\Desktop\Personel 1.2\PersonelProtfolio\obj\Debug\net8.0\PersonelProtfolio.genruntimeconfig.cache
 C:\Users\asus\Desktop\Personel 1.2\PersonelProtfolio\obj\Debug\net8.0\ref\PersonelProtfolio.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonelProtfolio\obj\Debug\net8.0\PersonelProtfolio.sourcelink.json

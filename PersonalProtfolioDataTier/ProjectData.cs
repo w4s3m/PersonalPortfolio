@@ -186,9 +186,9 @@ namespace PersonalProtfolioDataTier
                 }
             }
         }
-        public static async Task<List<ProjectDataDTO>> GetAllProjects()
+        public static async Task<List<ProjectDataDTO?>> GetAllProjects()
         {
-            List<ProjectDataDTO> projects = new();
+            List<ProjectDataDTO?> projects = new();
 
             string query = @"SELECT ProjectID, Title, Description, ImagePath, ProjectURL, AddedDateTime, IsActive FROM Projects";
 

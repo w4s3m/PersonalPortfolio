@@ -43,3 +43,4 @@ C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Debug\net8.0\Pe
 C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Debug\net8.0\refint\PersonalProtfolioDataTier.dll
 C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Debug\net8.0\PersonalProtfolioDataTier.pdb
 C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Debug\net8.0\ref\PersonalProtfolioDataTier.dll
+C:\Users\asus\Desktop\Personel 1.2\PersonalProtfolioDataTier\obj\Debug\net8.0\PersonalProtfolioDataTier.sourcelink.json

@@ -13,13 +13,14 @@ namespace PersonalProtfolioDataTier
     public class SkillsDataDTO
     {
 
-        public SkillsDataDTO(int skillID, string skillName, string imagePath, int skillCategory, bool isActive  )
+        public SkillsDataDTO(int skillID, string skillName, string imagePath, int skillCategory, bool isActive , string SkillDescreption )
         {
             this.SkillID = skillID;
             this.SkillName = skillName;
             this.ImagePath = imagePath;
             this.SkillCategory = skillCategory;
             this.IsActive = isActive;
+            this.SkillDescreption = SkillDescreption;
         }
 
         public int SkillID { get; set; }
@@ -35,8 +36,11 @@ namespace PersonalProtfolioDataTier
         [DefaultValue(0)]
         [Required]
         public int SkillCategory { get; set; }
-        public bool IsActive { get; set; }  
+        public bool IsActive { get; set; }
 
+        [DefaultValue("")]
+        [Required]
+        public string SkillDescreption { get; set; }
     }
 
     public class SkillsData
@@ -53,8 +57,8 @@ namespace PersonalProtfolioDataTier
         {
             int newSkillId = -1;
 
-            string query = @"INSERT INTO Skills (SkillName, ImagePath, SkillCategory, IsActive)
-                    VALUES (@SkillName, @ImagePath, @SkillCategory, @IsActive);
+            string query = @"INSERT INTO Skills (SkillName, ImagePath, SkillCategory, IsActive, SkillDescreption)
+                    VALUES (@SkillName, @ImagePath, @SkillCategory, @IsActive, @SkillDescreption);
                     SELECT SCOPE_IDENTITY();";
 
 
@@ -67,6 +71,8 @@ namespace PersonalProtfolioDataTier
                     cmd.Parameters.AddWithValue("@ImagePath", SDTO.ImagePath);
                     cmd.Parameters.AddWithValue("@SkillCategory", SDTO.SkillCategory);
                     cmd.Parameters.AddWithValue("@IsActive", SDTO.IsActive);
+                   
+                    cmd.Parameters.AddWithValue("@SkillDescreption", SDTO.SkillDescreption);
 
 
                     await connection.OpenAsync();
@@ -88,7 +94,7 @@ namespace PersonalProtfolioDataTier
 
         public static async Task<SkillsDataDTO?> GetSkillById(int SkillID)
         {
-            string query = @"SELECT SkillID, SkillName, ImagePath, SkillCategory, IsActive
+            string query = @"SELECT SkillID, SkillName, ImagePath, SkillCategory, IsActive, SkillDescreption
                             FROM Skills WHERE SkillID = @SkillID";
 
             using (SqlConnection connection = new(_connectionString))
@@ -110,7 +116,8 @@ namespace PersonalProtfolioDataTier
                                 reader.GetString(reader.GetOrdinal("SkillName")),
                                 reader.GetString(reader.GetOrdinal("ImagePath")),
                                 reader.GetInt32(reader.GetOrdinal("SkillCategory")),
-                                reader.GetBoolean(reader.GetOrdinal("IsActive"))
+                                reader.GetBoolean(reader.GetOrdinal("IsActive")),
+                                reader.GetString(reader.GetOrdinal("SkillDescreption"))
                             );
                         }
                     }
@@ -126,7 +133,7 @@ namespace PersonalProtfolioDataTier
 
         public static async Task<bool> UpdateSkill(SkillsDataDTO SDTO)
         {
-            string query = @"UPDATE Skills SET SkillName = @SkillName, ImagePath = @ImagePath, SkillCategory = @SkillCategory, 
+            string query = @"UPDATE Skills SET SkillName = @SkillName, ImagePath = @ImagePath, SkillCategory = @SkillCategory, SkillDescreption = @SkillDescreption,
                             IsActive = @IsActive
                             WHERE SkillID = @SkillID";
 
@@ -140,6 +147,7 @@ namespace PersonalProtfolioDataTier
                     cmd.Parameters.AddWithValue("@ImagePath", SDTO.ImagePath);
                     cmd.Parameters.AddWithValue("@SkillCategory", SDTO.SkillCategory);
                     cmd.Parameters.AddWithValue("@IsActive", SDTO.IsActive);
+                    cmd.Parameters.AddWithValue("@SkillDescreption", SDTO.SkillDescreption);
 
                     await connection.OpenAsync();
                     int rowsAffected = await cmd.ExecuteNonQueryAsync();
@@ -181,7 +189,7 @@ namespace PersonalProtfolioDataTier
         public static async Task<List<SkillsDataDTO>> GetAllSkills()
         {
             List<SkillsDataDTO> skillsList = new List<SkillsDataDTO>();
-            string query = @"SELECT SkillID, SkillName, ImagePath, SkillCategory, IsActive FROM Skills";
+            string query = @"SELECT SkillID, SkillName, ImagePath, SkillCategory, IsActive, SkillDescreption FROM Skills";
             using (SqlConnection connection = new(_connectionString))
             using (SqlCommand cmd = new(query, connection))
             {
@@ -198,7 +206,8 @@ namespace PersonalProtfolioDataTier
                                 reader.GetString(reader.GetOrdinal("SkillName")),
                                 reader.GetString(reader.GetOrdinal("ImagePath")),
                                 reader.GetInt32(reader.GetOrdinal("SkillCategory")),
-                                reader.GetBoolean(reader.GetOrdinal("IsActive"))
+                                reader.GetBoolean(reader.GetOrdinal("IsActive")),
+                                reader.GetString(reader.GetOrdinal("SkillDescreption"))
                             ));
                         }
                     }

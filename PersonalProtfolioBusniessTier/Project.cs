@@ -76,9 +76,9 @@ namespace PersonalProtfolioBusniessTier
             return await ProjectData.DeleteProject(ProjectID);
         }
 
-        public static async Task<List<ProjectDataDTO>> GetAllProjects()
+        public static async Task<List<ProjectDataDTO?>> GetAllProjects()
         {
-            List<ProjectDataDTO> projectsData = await ProjectData.GetAllProjects();
+            List<ProjectDataDTO?> projectsData = await ProjectData.GetAllProjects();
 
             return projectsData;
         }

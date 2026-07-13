@@ -34,3 +34,4 @@ C:\Users\asus\Desktop\Personel 1.2\EventLogs\obj\Debug\net8.0\EventLogs.dll
 C:\Users\asus\Desktop\Personel 1.2\EventLogs\obj\Debug\net8.0\refint\EventLogs.dll
 C:\Users\asus\Desktop\Personel 1.2\EventLogs\obj\Debug\net8.0\EventLogs.pdb
 C:\Users\asus\Desktop\Personel 1.2\EventLogs\obj\Debug\net8.0\ref\EventLogs.dll
+C:\Users\asus\Desktop\Personel 1.2\EventLogs\obj\Debug\net8.0\EventLogs.sourcelink.json
