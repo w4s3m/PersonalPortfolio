@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PersonalProtfolioDataTier")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+af452f92ad23b97c81da75dcb2eac1986600fc66")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7cbd8eebc68c199c2cf6ff040b165c396e9bc06a")]
 [assembly: System.Reflection.AssemblyProductAttribute("PersonalProtfolioDataTier")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PersonalProtfolioDataTier")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

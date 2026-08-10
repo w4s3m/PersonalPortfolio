@@ -20,6 +20,11 @@ namespace PersonelProtfolio.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
+        private readonly IConfiguration _configuration;
+        public AuthController(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         // This endpoint handles user login.
         // It verifies credentials and returns a JWT token if login succeeds.
         [HttpPost("login")]
@@ -28,10 +33,10 @@ namespace PersonelProtfolio.Controllers
             // Step 1: Find the student by email from the in-memory data store.
             // Email acts as the unique login identifier.
             PersonalProtfolioDataTier.UserDataDTO? LoginUser = await PersonalProtfolioBusniessTier.Users.LoginUserByUserNameAndPassword(request.UserName, request.Password);
-              
+               
             if (LoginUser == null)
                 return Unauthorized("Invalid credentials");
-
+            // المطالبات
             var claims = new[]
             {                
                 new Claim(ClaimTypes.NameIdentifier, LoginUser.UserID.ToString()),
@@ -43,7 +48,10 @@ namespace PersonelProtfolio.Controllers
             // Step 3: Create the symmetric security key used to sign the JWT.
             // This key must match the key used in JWT validation middleware.
             // This key will stored in save file and read from there in real application, but for simplicity we hardcode it here. 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("THIS_IS_A_VERY_SECRET_KEY_123456"));
+
+            // var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("THIS_IS_A_VERY_SECRET_KEY_123456"));
+            var secretKey = _configuration["JwtSettings:SecretKey"];
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
 
             // Step 4: Define the signing credentials.
             // This specifies the algorithm used to sign the token.
@@ -53,10 +61,10 @@ namespace PersonelProtfolio.Controllers
             // Step 5: Create the JWT token.
             // The token includes issuer, audience, claims, expiration, and signature.
             var token = new JwtSecurityToken(
-                issuer: "PersonelProtfolio",
-                audience: "PersonelProtfolioUsers",
+                issuer: _configuration["JwtSettings:Issuer"],
+                audience: _configuration["JwtSettings:Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(30),
+                expires: DateTime.UtcNow.AddMinutes(30),
                 signingCredentials: creds
             );
 

@@ -8,21 +8,20 @@ using System.Threading.Tasks;
 
 namespace PersonelProtfolio.Controllers
 {
-   // [Authorize]
+    [Authorize]
     [Route("api/PersonelProtfolio")]
     [ApiController]
     public class PersonelProtfolio : ControllerBase
     {
 
-     //   [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpPost("ADDnewProject",Name = "AddProject")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult<ProjectDataDTO>> AddNewProjectt(ProjectDataDTO PDTO)
+        public async Task<ActionResult<ProjectDataDTO>> AddNewProjectt([FromBody] ProjectDataDTO PDTO)
         {
             try
             {
-
                 PersonalProtfolioBusniessTier.Project NewProject = new (new ProjectDataDTO(PDTO.ProjectID, PDTO.Title, PDTO.Description, PDTO.ImagePath,
                   PDTO.ProjectURL, PDTO.AddedDateTime, PDTO.IsActive));
 
@@ -45,12 +44,12 @@ namespace PersonelProtfolio.Controllers
             }
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpPut("UpdateProjects/{ProjectID}", Name = "UpdateProject")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<ProjectDataDTO>> UpdateProject(int ProjectID, ProjectDataDTO PDTO)
+        public async Task<ActionResult<ProjectDataDTO>> UpdateProject( int ProjectID, [FromBody] ProjectDataDTO PDTO)
         {
             if (ProjectID <= 0)
                 return BadRequest("Invalid Project ID.");
@@ -87,7 +86,7 @@ namespace PersonelProtfolio.Controllers
         }
 
         
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpDelete("deleteProject/{ProjectID}", Name = "DeleteProject")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -143,7 +142,7 @@ namespace PersonelProtfolio.Controllers
             }
         }
 
-        //
+        
         [Authorize(Roles = "admin")]
         [HttpGet("GetProjectByID/{ProjectID}", Name = "GetProjectByID")]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -168,7 +167,7 @@ namespace PersonelProtfolio.Controllers
         }
 
 
-        //[Authorize(Roles = "admin")]
+        /[Authorize(Roles = "admin")]
         [HttpPost("AddSkill", Name = "AddSkill")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
