@@ -167,7 +167,7 @@ namespace PersonelProtfolio.Controllers
         }
 
 
-        /[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpPost("AddSkill", Name = "AddSkill")]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -202,7 +202,7 @@ namespace PersonelProtfolio.Controllers
         }
 
         //OLD DATA IS UPDATED
-       // [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpPut("UpdateSkills/{SkillID}", Name = "UpdateSkill")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -245,7 +245,7 @@ namespace PersonelProtfolio.Controllers
             }
         }
 
-       // [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpDelete("deleteSkill/{SkillID}", Name = "DeleteSkills")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -276,9 +276,7 @@ namespace PersonelProtfolio.Controllers
                 return BadRequest("Exception error!");
             }
         }
-
-
-        // [Authorize(Roles = "admin")]
+        [Authorize (Roles = "admin")]
         [HttpGet("GetSkillByid/{SkillID}", Name = "GetSkillByid")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
