@@ -616,6 +616,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PersonelProtfolio.Controllers.AuthController",
+    "Method": "Logout",
+    "RelativePath": "api/PersonelProtfolio/logout",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "PersonelProtfolio.DTOs.Auth.LogoutRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PersonelProtfolio.Controllers.PersonelProtfolio",
     "Method": "MarkMessageAsRead",
     "RelativePath": "api/PersonelProtfolio/MarkMessageAsRead",
@@ -649,6 +665,22 @@
         "StatusCode": 400
       }
     ]
+  },
+  {
+    "ContainingType": "PersonelProtfolio.Controllers.AuthController",
+    "Method": "Refresh",
+    "RelativePath": "api/PersonelProtfolio/RefreshToken",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "PersonelProtfolio.DTOs.Auth.RefreshToken",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "PersonelProtfolio.Controllers.PersonelProtfolio",

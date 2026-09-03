@@ -373,7 +373,7 @@ namespace PersonelProtfolio.Controllers
             }
         }
 
-        //[Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin")]
         [HttpDelete("deleteUserByID/{UserID}", Name = "DeleteUser")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

@@ -22,8 +22,8 @@ namespace PersonalProtfolioDataTier
             this.Role = Role;
             this.LastLogin = Lastlogin;
             this.IsActive = IsActive;
-        }   
-
+        }
+     
         public int UserID { get; set; }
 
         // To tell swagger that this field is required and should not be empty, we can use the [Required] attribute along with
@@ -56,23 +56,39 @@ namespace PersonalProtfolioDataTier
         public bool IsActive { get; set; }
     
     }
-
-
+    public class LoginUserDataDTO : UserDataDTO
+    {
+        public string? RefreshToken { get; set; }
+        public DateTime? RefreshTokenExpiryTime { get; set; }
+        public DateTime? RefreshTokenRevokedAt { get; set; }
+        public LoginUserDataDTO(
+            int userID, string userName, string passwordHash, string fullName ,string email, string role, DateTime? lastLogin, bool isActive,
+            string? refreshToken, DateTime? refreshTokenExpiryTime, DateTime? refreshTokenRevokedAt)
+            : base(userID, userName, passwordHash, fullName, email, role, lastLogin ?? DateTime.Now, isActive)
+        {
+            this.RefreshToken = refreshToken;
+            this.RefreshTokenExpiryTime = refreshTokenExpiryTime;
+            this.RefreshTokenRevokedAt = refreshTokenRevokedAt;
+        }
+    }
     public class UsersData
     {
         private static string? _connectionString = clsConnectionString.connectionString;
-        public static async Task<bool> UpdateLastLogin(int userId)
+        public static async Task<bool> UpdateLastLogin(int userId, string RefreshToken, DateTime? RefreshTokenExpiryTime, DateTime? RefreshTokenRevokedAt)
         {
-            string query = "UPDATE Users SET LastLogin = @LastLogin WHERE UserID = @UserID";
+            string query = @"UPDATE Users SET LastLogin = @LastLogin, RefreshToken = @RefreshToken, 
+                    RefreshTokenExpiryTime = @RefreshTokenExpiryTime, RefreshTokenRevokedAt = @RefreshTokenRevokedAt WHERE UserID = @UserID";
 
             using (SqlConnection connection = new (_connectionString))
             using (SqlCommand cmd = new (query, connection))
             {
                 try
                 {
-                    cmd.Parameters.AddWithValue("@LastLogin", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@LastLogin", DateTime.UtcNow);
                     cmd.Parameters.AddWithValue("@UserID", userId);
-                    
+                    cmd.Parameters.AddWithValue("@RefreshToken", (object?)RefreshToken ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@RefreshTokenExpiryTime", (object?)RefreshTokenExpiryTime ?? DBNull.Value);
+                    cmd.Parameters.AddWithValue("@RefreshTokenRevokedAt", (object?)RefreshTokenRevokedAt ?? DBNull.Value);
                     await connection.OpenAsync();
 
                     int rowsAffected = await cmd.ExecuteNonQueryAsync();
@@ -196,11 +212,14 @@ namespace PersonalProtfolioDataTier
 
 
 
-        public static async Task<UserDataDTO?> LoginUserByUserNameAndPassword(string userName, string password)
+        public static async Task<LoginUserDataDTO?> LoginUserByUserNameAndPassword(string userName, string password)
         {
-            string query = @"SELECT UserID, UserName, PasswordHash, FullName, Email, Role, LastLogin, IsActive
-                             FROM Users WHERE UserName = @UserName";
-          
+            string PasswordHash = BCrypt.Net.BCrypt.HashPassword(password);
+            string query = @"SELECT UserID, UserName, PasswordHash, FullName, Email, Role, LastLogin, IsActive,
+                            RefreshToken, RefreshTokenExpiryTime, RefreshTokenRevokedAt
+                     FROM Users 
+                     WHERE UserName = @UserName";
+
             using (SqlConnection connection = new(_connectionString))
             using (SqlCommand cmd = new(query, connection))
             {
@@ -208,26 +227,38 @@ namespace PersonalProtfolioDataTier
                 {
                     cmd.Parameters.AddWithValue("@UserName", userName);
                     await connection.OpenAsync();
+
                     using (SqlDataReader reader = await cmd.ExecuteReaderAsync())
                     {
                         if (await reader.ReadAsync())
                         {
                             string storedPasswordHash = reader.GetString(reader.GetOrdinal("PasswordHash"));
+
                             if (BCrypt.Net.BCrypt.Verify(password, storedPasswordHash))
                             {
-                                return new UserDataDTO(
+                              
+                                int lastLoginOrdinal = reader.GetOrdinal("LastLogin");
+                                int refreshTokenOrdinal = reader.GetOrdinal("RefreshToken");
+                                int expiryTimeOrdinal = reader.GetOrdinal("RefreshTokenExpiryTime");
+                                int revokedAtOrdinal = reader.GetOrdinal("RefreshTokenRevokedAt");
+
+                                return new LoginUserDataDTO(
                                     reader.GetInt32(reader.GetOrdinal("UserID")),
                                     reader.GetString(reader.GetOrdinal("UserName")),
                                     storedPasswordHash,
                                     reader.GetString(reader.GetOrdinal("FullName")),
                                     reader.GetString(reader.GetOrdinal("Email")),
                                     reader.GetString(reader.GetOrdinal("Role")),
-                                    reader.GetDateTime(reader.GetOrdinal("LastLogin")),
-                                    reader.GetBoolean(reader.GetOrdinal("IsActive"))
+                                    reader.IsDBNull(lastLoginOrdinal) ? null : reader.GetDateTime(lastLoginOrdinal),
+                                    reader.GetBoolean(reader.GetOrdinal("IsActive")),
+                                    reader.IsDBNull(refreshTokenOrdinal) ? null : reader.GetString(refreshTokenOrdinal),
+                                    reader.IsDBNull(expiryTimeOrdinal) ? null : reader.GetDateTime(expiryTimeOrdinal),
+                                    reader.IsDBNull(revokedAtOrdinal) ? null : reader.GetDateTime(revokedAtOrdinal)
                                 );
                             }
                         }
                     }
+
                     return null;
                 }
                 catch (Exception ex)
@@ -236,8 +267,35 @@ namespace PersonalProtfolioDataTier
                     return null;
                 }
             }
-        }   
+        }
 
+
+
+        public static async Task<bool> RevokeRefreshToken(string UserName)
+        {
+            string query = @"UPDATE Users 
+                     SET RefreshTokenRevokedAt = @RefreshTokenRevokedAt 
+                     WHERE UserName = @UserName";
+
+            using (SqlConnection connection = new(_connectionString))
+            using (SqlCommand cmd = new(query, connection))
+            {
+                try
+                {
+                    cmd.Parameters.AddWithValue("@UserName", UserName);
+                    cmd.Parameters.AddWithValue("@RefreshTokenRevokedAt", DateTime.UtcNow);
+
+                    await connection.OpenAsync();
+                    int rowsAffected = await cmd.ExecuteNonQueryAsync();
+                    return rowsAffected > 0;
+                }
+                catch (Exception ex)
+                {
+                    clsEventLog.EnterEventLog(ex, "Error in RevokeRefreshToken");
+                    return false;
+                }
+            }
+        }
         public async static Task<int> AddNewUser(UserDataDTO user)
         {
             int newUserID = -1;

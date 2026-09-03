@@ -33,6 +33,21 @@ namespace PersonalProtfolioBusniessTier
             }
         }
 
+
+        LoginUserDataDTO? LUDTO
+        {
+            get
+            {
+                return new LoginUserDataDTO(this.UserID, this.UserName, this.PasswordHash, this.FullName,
+                            this.Email, this.Role, this.LastLogin, this.IsActive, this.RefreshToken, this.RefreshTokenExpiryTime, this.RefreshTokenRevokedAt);
+            }
+        }
+        // Refresh Token properties
+        public string RefreshToken { get; set; } = string.Empty;
+        public DateTime ? RefreshTokenExpiryTime { get; set; }
+        public DateTime ? RefreshTokenRevokedAt { get; set; }
+        
+        
         public int UserID { get; set; }
         public string UserName { get; set; } = null!;
         public string PasswordHash { get; set; } = null!;
@@ -61,10 +76,13 @@ namespace PersonalProtfolioBusniessTier
             else
                 this._RoleMode = _enRole.User;
         }
-        public async Task<bool> UpdateLastLogin()
+        public static async Task<bool> UpdateLastLogin(int UserID, string refreshToken, DateTime? refreshTokenExpiryTime, DateTime? refreshTokenRevokedAt)
         {
-            this.LastLogin = DateTime.Now;
-            return await UsersData.UpdateLastLogin(this.UserID);
+            return await UsersData.UpdateLastLogin(UserID, refreshToken, refreshTokenExpiryTime, refreshTokenRevokedAt);
+        }
+        public static async Task<bool> RevokeRefreshToken(string UsName)
+        {
+            return await UsersData.RevokeRefreshToken(UsName);
         }
 
         public async Task<bool> AddNewUser()
@@ -115,13 +133,13 @@ namespace PersonalProtfolioBusniessTier
             return await UsersData.GetAdminEmail();
         }
 
-        public static async Task<UserDataDTO?> LoginUserByUserNameAndPassword(string userName, string PasswordHash)
+        public static async Task<LoginUserDataDTO?> LoginUserByUserNameAndPassword(string userName, string PasswordHash)
         {
             
             if (string.IsNullOrWhiteSpace(userName) || string.IsNullOrWhiteSpace(PasswordHash))
                 return null;
 
-            UserDataDTO? Us = await UsersData.LoginUserByUserNameAndPassword(userName, PasswordHash);
+            LoginUserDataDTO? Us = await UsersData.LoginUserByUserNameAndPassword(userName, PasswordHash);
 
             if (Us.Role != "user" && Us.IsActive == false)
                 return null;

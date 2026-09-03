@@ -1,18 +1,15 @@
 ﻿using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-
-// The following namespaces are used for JWT token creation and password hashing.
 using PersonalProtfolioDataTier;
 using PersonalProtfolioBusniessTier;
-//
-
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Security.Cryptography;
+using PersonelProtfolio.DTOs.Auth;
 
 namespace PersonelProtfolio.Controllers
 {
@@ -32,13 +29,14 @@ namespace PersonelProtfolio.Controllers
         {
             // Step 1: Find the student by email from the in-memory data store.
             // Email acts as the unique login identifier.
-            PersonalProtfolioDataTier.UserDataDTO? LoginUser = await PersonalProtfolioBusniessTier.Users.LoginUserByUserNameAndPassword(request.UserName, request.Password);
-               
+            LoginUserDataDTO? LoginUser = await PersonalProtfolioBusniessTier.Users.LoginUserByUserNameAndPassword(request.UserName, request.Password);
+
             if (LoginUser == null)
                 return Unauthorized("Invalid credentials");
+
             // المطالبات
             var claims = new[]
-            {                
+            {
                 new Claim(ClaimTypes.NameIdentifier, LoginUser.UserID.ToString()),
                 new Claim(ClaimTypes.Name, LoginUser.UserName),
                 new Claim(ClaimTypes.Role, LoginUser.Role)
@@ -64,13 +62,115 @@ namespace PersonelProtfolio.Controllers
                 issuer: _configuration["JwtSettings:Issuer"],
                 audience: _configuration["JwtSettings:Audience"],
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(30),
+                expires: DateTime.UtcNow.AddSeconds(10),
                 signingCredentials: creds
             );
 
-            // Step 6: Return the serialized JWT token to the client.
+
+            var accessToken = new JwtSecurityTokenHandler().WriteToken(token);
+            //6
+            var refreshToken = RefreshTokenGenerator();
+            LoginUser.RefreshToken = BCrypt.Net.BCrypt.HashPassword(refreshToken);
+            LoginUser.RefreshTokenExpiryTime = DateTime.UtcNow.AddMinutes(30);
+            LoginUser.RefreshTokenRevokedAt = null; 
+            await Users.UpdateLastLogin(LoginUser.UserID, LoginUser.RefreshToken, LoginUser.RefreshTokenExpiryTime, LoginUser.RefreshTokenRevokedAt);
+            // Step 6/7: Return the serialized JWT token to the client.
             // The client will send this token with future requests.
-            return Ok ( new{token = new JwtSecurityTokenHandler().WriteToken(token) });
+
+            return Ok(new TokenResponse
+            {
+                AccessToken = accessToken,
+                RefreshToken = refreshToken
+            }
+            );
+            /* new{token = new JwtSecurityTokenHandler().WriteToken(token) }*/
         }
+
+
+        private static string RefreshTokenGenerator()
+        {
+            var bytes = new byte[64];
+            using var rng = RandomNumberGenerator.Create();
+            rng.GetBytes(bytes);
+            return Convert.ToBase64String(bytes);
+
+        }
+
+        // Add Refresh Endpoint (Rotation)
+        [HttpPost("RefreshToken")]
+        public async Task<IActionResult> Refresh([FromBody] RefreshToken request)
+        {
+            LoginUserDataDTO? LoginUser = await PersonalProtfolioBusniessTier.Users.LoginUserByUserNameAndPassword(request.Username, request.Password);
+
+            if (LoginUser == null)
+                return Unauthorized("Invalid Refresh Token");
+
+            // Check if the refresh token has been revoked this mean when the user logout or the refresh token has been compromised, we should not allow the user to use it anymore.
+            if (LoginUser.RefreshTokenRevokedAt != null)
+                return Unauthorized("Refresh Token has been revoked");
+
+            if (LoginUser.RefreshTokenExpiryTime == null || LoginUser.RefreshTokenExpiryTime <= DateTime.UtcNow)
+                return Unauthorized("Refresh Token has expired");
+
+            bool refreshValid = BCrypt.Net.BCrypt.Verify(request.ResreshToken, LoginUser.RefreshToken);
+            if (!refreshValid)
+                return Unauthorized("Invalid Refresh Token");
+
+
+
+            // Issue NEW access token (same claims & signing settings as login)
+            var claims = new[]
+            {
+                new Claim(ClaimTypes.NameIdentifier, LoginUser.UserID.ToString()),
+                new Claim(ClaimTypes.Email, LoginUser.Email),
+                new Claim(ClaimTypes.Role, LoginUser.Role)
+            };
+
+            var secretKey = _configuration["JwtSettings:SecretKey"];
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
+
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var jwt = new JwtSecurityToken(
+                issuer: _configuration["JwtSettings:Issuer"],
+                audience: _configuration["JwtSettings:Audience"],
+                claims: claims,
+                expires: DateTime.UtcNow.AddSeconds(10),
+                signingCredentials: creds
+            );
+
+            var newAccessToken = new JwtSecurityTokenHandler().WriteToken(jwt);
+
+            // Rotation: replace refresh token
+            var newRefreshToken = RefreshTokenGenerator();
+            LoginUser.RefreshToken = BCrypt.Net.BCrypt.HashPassword(newRefreshToken);
+            LoginUser.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
+            LoginUser.RefreshTokenRevokedAt = null;
+
+            return Ok(new TokenResponse
+            {
+                AccessToken = newAccessToken,
+                RefreshToken = newRefreshToken
+            });
+        }
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout([FromBody] LogoutRequest request)
+        {
+            LoginUserDataDTO? LoginUser = await Users.LoginUserByUserNameAndPassword(request.Username, request.Password);
+
+            if (LoginUser == null)
+                return Ok();
+
+            bool refreshValid = BCrypt.Net.BCrypt.Verify(request.RefreshToken, LoginUser.RefreshToken);
+            if (!refreshValid)
+                return Ok();
+
+            LoginUser.RefreshTokenRevokedAt = DateTime.UtcNow;
+            await Users.RevokeRefreshToken(LoginUser.UserName);
+            return Ok("Logged out successfully");
+        }
+
     }
+
+
 }

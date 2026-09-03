@@ -3,11 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonelProtfolio\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E6DAE402-1766-4A1F-861B-FFB2CF35C058}|..\\PersonalProtfolioBusniessTier\\PersonalProtfolioBusniessTier.csproj|c:\\users\\asus\\desktop\\personel 1.2\\personalprotfoliobusniesstier\\project.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4C7D828-F6A0-4EC3-B861-31B335EA08BB}|..\\PersonalProtfolioDataTier\\PersonalProtfolioDataTier.csproj|c:\\users\\asus\\desktop\\personel 1.2\\personalprotfoliodatatier\\projectdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9F2648FA-2249-4C89-B251-4A1B25B28212}|PersonelProtfolio.csproj|c:\\users\\asus\\desktop\\personel 1.2\\personelprotfolio\\controllers\\personelprotfolio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9F2648FA-2249-4C89-B251-4A1B25B28212}|PersonelProtfolio.csproj|solutionrelative:controllers\\personelprotfolio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\asus\\AppData\\Local\\Temp\\.vsdbgsrc\\3d56677d8f90c7cd993bffbff2764725e887ddf3acb4e91598b3a6a17805cdde\\InferParameterBindingInfoConvention.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F2648FA-2249-4C89-B251-4A1B25B28212}|PersonelProtfolio.csproj|c:\\users\\asus\\desktop\\personel 1.2\\personelprotfolio\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F2648FA-2249-4C89-B251-4A1B25B28212}|PersonelProtfolio.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D4C7D828-F6A0-4EC3-B861-31B335EA08BB}|..\\PersonalProtfolioDataTier\\PersonalProtfolioDataTier.csproj|c:\\users\\asus\\desktop\\personel 1.2\\personalprotfoliodatatier\\usersdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E6DAE402-1766-4A1F-861B-FFB2CF35C058}|..\\PersonalProtfolioBusniessTier\\PersonalProtfolioBusniessTier.csproj|c:\\users\\asus\\desktop\\personel 1.2\\personalprotfoliobusniesstier\\users.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F2648FA-2249-4C89-B251-4A1B25B28212}|PersonelProtfolio.csproj|c:\\users\\asus\\desktop\\personel 1.2\\personelprotfolio\\dtos\\auth\\logoutrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F2648FA-2249-4C89-B251-4A1B25B28212}|PersonelProtfolio.csproj|solutionrelative:dtos\\auth\\logoutrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F2648FA-2249-4C89-B251-4A1B25B28212}|PersonelProtfolio.csproj|c:\\users\\asus\\desktop\\personel 1.2\\personelprotfolio\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F2648FA-2249-4C89-B251-4A1B25B28212}|PersonelProtfolio.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F2648FA-2249-4C89-B251-4A1B25B28212}|PersonelProtfolio.csproj|c:\\users\\asus\\desktop\\personel 1.2\\personelprotfolio\\dtos\\auth\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F2648FA-2249-4C89-B251-4A1B25B28212}|PersonelProtfolio.csproj|solutionrelative:dtos\\auth\\refreshtoken.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -25,29 +50,112 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InferParameterBindingInfoConvention.cs",
-              "DocumentMoniker": "C:\\Users\\asus\\AppData\\Local\\Temp\\.vsdbgsrc\\3d56677d8f90c7cd993bffbff2764725e887ddf3acb4e91598b3a6a17805cdde\\InferParameterBindingInfoConvention.cs",
-              "RelativeDocumentMoniker": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\3d56677d8f90c7cd993bffbff2764725e887ddf3acb4e91598b3a6a17805cdde\\InferParameterBindingInfoConvention.cs",
-              "ToolTip": "C:\\Users\\asus\\AppData\\Local\\Temp\\.vsdbgsrc\\3d56677d8f90c7cd993bffbff2764725e887ddf3acb4e91598b3a6a17805cdde\\InferParameterBindingInfoConvention.cs [Read Only]",
-              "RelativeToolTip": "..\\..\\..\\AppData\\Local\\Temp\\.vsdbgsrc\\3d56677d8f90c7cd993bffbff2764725e887ddf3acb4e91598b3a6a17805cdde\\InferParameterBindingInfoConvention.cs [Read Only]",
-              "ViewState": "AgIAACoAAAAAAAAAAAASwD8AAAADAAAAAQAAAA==",
+              "DocumentIndex": 0,
+              "Title": "Project.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonalProtfolioBusniessTier\\Project.cs",
+              "RelativeDocumentMoniker": "..\\PersonalProtfolioBusniessTier\\Project.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonalProtfolioBusniessTier\\Project.cs",
+              "RelativeToolTip": "..\\PersonalProtfolioBusniessTier\\Project.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAwFMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T16:49:00.108Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2026-09-03T17:21:40.768Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "ProjectData.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonalProtfolioDataTier\\ProjectData.cs",
+              "RelativeDocumentMoniker": "..\\PersonalProtfolioDataTier\\ProjectData.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonalProtfolioDataTier\\ProjectData.cs",
+              "RelativeToolTip": "..\\PersonalProtfolioDataTier\\ProjectData.cs",
+              "ViewState": "AgIAAK8AAAAAAAAAAAAUwMYAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-03T17:21:30.491Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonelProtfolio\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonelProtfolio\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-02T11:50:33.526Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "PersonelProtfolio.cs",
               "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonelProtfolio\\Controllers\\PersonelProtfolio.cs",
               "RelativeDocumentMoniker": "Controllers\\PersonelProtfolio.cs",
               "ToolTip": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonelProtfolio\\Controllers\\PersonelProtfolio.cs",
               "RelativeToolTip": "Controllers\\PersonelProtfolio.cs",
-              "ViewState": "AgIAAAMBAAAAAAAAAAAAABYBAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAkwHgAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-10T15:38:31.82Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-09-01T17:40:02.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LogoutRequest.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonelProtfolio\\DTOs\\Auth\\LogoutRequest.cs",
+              "RelativeDocumentMoniker": "DTOs\\Auth\\LogoutRequest.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonelProtfolio\\DTOs\\Auth\\LogoutRequest.cs",
+              "RelativeToolTip": "DTOs\\Auth\\LogoutRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-01T17:10:26.202Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RefreshToken.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonelProtfolio\\DTOs\\Auth\\RefreshToken.cs",
+              "RelativeDocumentMoniker": "DTOs\\Auth\\RefreshToken.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonelProtfolio\\DTOs\\Auth\\RefreshToken.cs",
+              "RelativeToolTip": "DTOs\\Auth\\RefreshToken.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAQAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-01T15:05:44.038Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UsersData.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonalProtfolioDataTier\\UsersData.cs",
+              "RelativeDocumentMoniker": "..\\PersonalProtfolioDataTier\\UsersData.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonalProtfolioDataTier\\UsersData.cs",
+              "RelativeToolTip": "..\\PersonalProtfolioDataTier\\UsersData.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAlwEwAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-01T14:06:45.575Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Users.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonalProtfolioBusniessTier\\Users.cs",
+              "RelativeDocumentMoniker": "..\\PersonalProtfolioBusniessTier\\Users.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonalProtfolioBusniessTier\\Users.cs",
+              "RelativeToolTip": "..\\PersonalProtfolioBusniessTier\\Users.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAlwFAAAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-01T12:53:05.548Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonelProtfolio\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\asus\\Desktop\\Personel 1.2\\PersonelProtfolio\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "Controllers\\AuthController.cs",
+              "ViewState": "AgIAAIsAAAAAAAAAAAAowJ0AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-27T15:00:42.738Z"
             }
           ]
         }
